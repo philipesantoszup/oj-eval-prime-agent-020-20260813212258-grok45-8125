@@ -1,3 +1,10 @@
-.PHONY: all
+.PHONY: all clean test
 all:
-	gcc -o test main.c buddy.c
+	gcc -O2 -o code main.c buddy.c
+	cp code test
+
+clean:
+	rm -f code test
+
+test: all
+	./code

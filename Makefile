@@ -1,10 +1,9 @@
-.PHONY: all clean test
+.PHONY: all clean
+CC = gcc
+CFLAGS = -O2 -std=gnu11 -Wno-int-conversion -Wno-unused-result
+
 all:
-	gcc -O2 -o code main.c buddy.c
-	cp code test
+	$(CC) $(CFLAGS) -o code main.c buddy.c
 
 clean:
 	rm -f code test
-
-test: all
-	./code
